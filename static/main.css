@@ -1,0 +1,89 @@
+#targetImg {
+    position: relative;
+    display: block;
+    margin: auto;
+}
+
+#introTitle {
+    position: relative;
+    display: block;
+    margin: auto;
+    text-align: center;
+    font-size: 400%;
+}
+
+.SubMitbtn {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: greenyellow;
+    position: relative;
+    display: block;
+    margin: auto;
+    font-size: 400%;
+    }
+
+.familiarBar {
+    position: relative;
+    display: block;
+    margin: 0;
+    text-align: center;
+    font-size: 400%;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    padding: 5%;
+}
+
+.labelColumn {
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    display: flex;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    flex-direction: column;
+    text-align: center;
+    max-width: 35%;
+}
+
+.placeHolder {
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    min-height: 3em;
+}
+
+.rangeLabel {
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: .2px;
+    line-height: 20px;
+}
+
+.scaleColumn {
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 22px;
+    -webkit-box-align: stretch;
+    align-items: center;
+    display: flex;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    flex-direction: column;
+    text-align: center;
+}
+
+.circle {
+    position: relative;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    margin-top: 13px;
+}
+

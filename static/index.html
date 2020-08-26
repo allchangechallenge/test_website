@@ -1,0 +1,80 @@
+<head>
+    <meta charset="utf-8">
+    <!-- Primary Meta Tags -->
+    <title>作答頁面開發</title>
+    <meta name="title" content="作答頁面開發">
+    <meta name="description" content="開發囉">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="./main.js"></script>
+    <link rel=stylesheet type="text/css" href="main.css">
+    <link href="./Signin Template · Bootstrap_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="login" class="main" style="text-align: center; margin-top: 20%; margin-left: 40%; margin-right: 40%; display: none;">
+        <form class="form-signin">
+            <h1 class="h3 mb-3 font-weight-normal">吳清麟教授<br>實驗平台</h1>
+            <label for="inputID" class="sr-only">受試者代號</label>
+            <input type="" id="inputID" class="form-control" placeholder="受試者代號" required="" autofocus="">
+            <label for="inputPassword" class="sr-only">密碼</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="密碼" required="">
+            <div class="btn btn-lg btn-primary btn-block" type="" onclick="loginEvent()">進入實驗</div>
+          </form>
+    </div>
+    <div id="introTheExperiment" class="main" style="text-align: left; margin-top: 5%; margin-left: 20%; margin-right: 20%; display: none;">
+        <h1 id="-">歡迎參加圖片命名作業</h1>
+        <hr>
+        <p>本作業旨在您對於圖片中物品的認識與熟悉度。待會您將看到120張圖片，每一個畫面呈現一張圖片，您的工作是依序寫下圖片中物品的名稱，以及評定您覺得該物品在日常生活中的常見程度。</p>
+        <br>
+        <h2 id="-">操作方式</h2>
+        <p>螢幕每次呈現一張圖片，請在20秒作答時間內，想出圖片中物品的名稱；若您想到答案，請點選下一頁進入答題畫面，或待20秒結束同樣會進入答題畫面；請將答案輸入在指定欄位中；再點選下一頁進入評定畫面，評定該物品在日常生活中的常見程度，以1至9分表示，數字愈高代表此物品愈熟悉。</p>
+        <br>
+        <h2 id="-">實施流程</h2>
+        <p>待會先進行兩道練習題，以讓您熟悉本作業操作方式。練習完沒問題後，便開始正式實驗。正式實驗包含六個回合，每一回合有20張圖片。回合與回合之間有一分鐘的休息。</p>
+        <p>若您對於本作業的操作與流程有任何問題，請舉手詢問主試者，若無，本作業即將開始。</p>        
+        <br>
+        <div class="btn btn-lg btn-primary btn-block" type="" onclick="introAgreed()">開始練習題</div>
+    </div>
+
+    <div id="showImg" class="main" style="display: none;">
+        <h1 id="introTitle">請觀看下列圖片</h1>
+        <br><br>
+    
+        <div id="imgBox">
+            <img id="targetImg" src="">
+        </div>
+        <br><br>
+        <div style="margin-left: 40%; margin-right: 40%;">
+            <div id="answerButton" class="btn btn-lg btn-primary btn-block" onclick="startAnswering()">開始作答</div>
+        </div>
+    </div>
+
+    <div id="Answering" class="main" style="display:none">
+        <h2 style="text-align: center;">給圖片的命名</h2>
+        <div style="margin-top:20%; margin-left:30%; margin-right: 30%;">
+            <input type="" id="answer" class="form-control" placeholder="請輸入你的答案（建議七字以內）" required="" autofocus="" onchange='haveAnswer = true;'>
+        </div>
+        <div style="margin-top:20%; margin-left:40%; margin-right: 40%;">
+            <div id="nameSubmitBtn" class="btn btn-lg btn-primary btn-block" type="" onclick="submitAnsToFamiliar()">提交答案</div>
+        </div>
+    </div>
+    <div id="Familiar" class="main" style="display:none">
+        <div style="margin-top:20%; margin-left:30%; margin-right: 30%;">
+            <h2 style="text-align: center;" id="familiarTitle">熟悉程度</h2>
+            <br>
+            <input type="range" id="answerBar" name="points" class="familiarBar" min="1" max="10" value="-1" step="1" onchange="updateBar()">
+        </div>
+        <div style="margin-top:20%; margin-left:40%; margin-right: 40%;">
+            <div id="familiarSubmitBtn" class="btn btn-lg btn-primary btn-block" type="" onclick="submitAnsToServer()">提交答案</div>
+        </div>
+    </div>
+    <div id="restForWhile" class="main" style="display:none">
+        <div style="margin-top:20%; margin-left:30%; margin-right: 30%;">
+            <h2 style="text-align: center;" id="restTimeRemain">休息時間</h2>
+        <div style="margin-top:20%; margin-left:40%; margin-right: 40%; text-align: center;">
+            <div id="restForWhileButton" class="btn btn-lg btn-primary btn-block" type="" onclick="showImg()">開始下一題</div>
+        </div>
+    </div>
+</body>
